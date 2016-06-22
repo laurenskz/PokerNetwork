@@ -31,7 +31,7 @@ public class PokerHand {
         dealerPos = jsonPokerhand.getInt("dealer");
         heroPos = jsonPokerhand.getInt("hero");
         bigBlind = jsonPokerhand.getDouble("BB");
-        tablesize = jsonPokerhand.getInt("players");
+        tablesize = MAX_PLAYERS_AT_TABLE;
     }
 
 

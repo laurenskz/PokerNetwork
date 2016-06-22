@@ -1,0 +1,33 @@
+group 'PokerNetwork'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile name: 'json-20160212'
+    compile name: 'Neuralnetwork-0.5'
+    compile name: 'hamcrest-core-1.3'
+    compile name: 'jcommon-1.0.23'
+    compile name: 'jfreechart-1.0.19'
+    compile 'org.mongodb:mongodb-driver:3.2.2'
+}
+
+jar {
+
+    manifest {
+        attributes "Main-Class": "prepare.BigPokerNetwork"
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+
+}
